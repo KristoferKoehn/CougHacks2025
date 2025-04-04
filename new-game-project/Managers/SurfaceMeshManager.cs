@@ -54,10 +54,6 @@ public partial class SurfaceMeshManager : Node
         HeightMapRD = new Texture2Drd();
         HeightMapRD.TextureRdRid = SurfaceHeightmap;
 
-        Node2D sot = (Node2D)GD.Load<PackedScene>("res://GameObjects/ShaderOutputTest/ShaderOutputTest.tscn").Instantiate();
-        sot.GetNode<Sprite2D>("Sprite2D").Texture = HeightMapRD;
-        SceneSwitcher.Instance().AddChild(sot);
-
     }
 
 

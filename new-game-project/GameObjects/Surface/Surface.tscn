@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://jow1p38v05li"]
+
+[ext_resource type="Material" uid="uid://m5vw1guxpxar" path="res://GameObjects/Surface/HeightmapSurface.tres" id="1_clsv5"]
+[ext_resource type="Script" uid="uid://dryfwd6cmai7e" path="res://GameObjects/Surface/Surface.cs" id="2_46eie"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4y5sr"]
+size = Vector2(4000, 4000)
+subdivide_width = 1024
+subdivide_depth = 1024
+orientation = 1
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_clsv5"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_clsv5"]
+properties/0/path = NodePath(".:time")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Surface" type="MeshInstance3D"]
+material_override = ExtResource("1_clsv5")
+mesh = SubResource("QuadMesh_4y5sr")
+script = ExtResource("2_46eie")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_clsv5")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_clsv5")

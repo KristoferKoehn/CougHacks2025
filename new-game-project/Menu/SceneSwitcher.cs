@@ -10,7 +10,7 @@ public partial class SceneSwitcher : Node
     public Node Network { get; private set; }
 
     public Godot.Collections.Dictionary<int, PackedScene> NetworkSceneDict = new() {
-        { 0, GD.Load<PackedScene>("res://Main.tscn")},
+        { 0, GD.Load<PackedScene>("res://Levels/Main.tscn")},
     };
 
     public Godot.Collections.Dictionary<int, PackedScene> NetworkObjectDict = new() {
