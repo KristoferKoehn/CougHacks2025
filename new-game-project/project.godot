@@ -10,9 +10,14 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/name="Storm Cell"
+run/main_scene="uid://djhy1wgvs58r1"
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Network="*res://Network/network.gd"
 
 [dotnet]
 
