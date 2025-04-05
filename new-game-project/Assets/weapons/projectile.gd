@@ -5,6 +5,7 @@ var bullettitle = "assaultrifle"
 var stats = WeaponStats.new()
 var speed = 100.0
 var damage = 50
+var source : int
 
 func statgrabber(title):
 	bullettitle = title
