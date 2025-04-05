@@ -131,4 +131,5 @@ func add_player(id: int):
 	var p = object_dictionary[2].instantiate()
 	p.name = str(id)
 	network_object_spawn.add_child(p, true)
+	p.global_position = Vector3(0, 40, 0)
 	p.set_multiplayer_authority(id)
