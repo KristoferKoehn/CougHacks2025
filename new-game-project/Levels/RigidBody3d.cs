@@ -7,7 +7,7 @@ public partial class RigidBody3d : RigidBody3D
 
     public override void _EnterTree()
     {
-        GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(multiplayerID);
+        SetMultiplayerAuthority(int.Parse(Name));
     }
 
     public override void _Ready()
