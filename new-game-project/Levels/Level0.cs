@@ -5,7 +5,7 @@ public partial class Level0 : Node3D
 {
     public override void _Ready()
     {
-        Multiplayer.ConnectedToServer += SpawnClientPlayer;
+        SpawnClientPlayer();
     }
 
     public void SpawnClientPlayer()
