@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cvunkwn280xd2"
-path="res://.godot/imported/disk.glb-c18db0203c62fa844bdd3a8744b47a99.scn"
+path="res://.godot/imported/disk.glb-0a3a52c2ad13ef2c8c91759794b5a632.scn"
 
 [deps]
 
-source_file="res://Assets1/weapons/diskshooter/disk.glb"
-dest_files=["res://.godot/imported/disk.glb-c18db0203c62fa844bdd3a8744b47a99.scn"]
+source_file="res://Assets/weapons/diskshooter/disk.glb"
+dest_files=["res://.godot/imported/disk.glb-0a3a52c2ad13ef2c8c91759794b5a632.scn"]
 
 [params]
 

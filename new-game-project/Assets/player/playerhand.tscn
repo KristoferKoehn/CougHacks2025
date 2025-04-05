@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=4 uid="uid://d3po1kifqq37p"]
 
-[ext_resource type="Shader" uid="uid://d008btg6lubdo" path="res://Assets/player/colormodulator.tres" id="1_6uolc"]
-[ext_resource type="Script" uid="uid://dac8kl4vy2vud" path="res://Assets/weapons/weaponhandler.gd" id="1_s45h2"]
-[ext_resource type="Texture2D" uid="uid://b37pkbj675at4" path="res://Assets/player/hand/1001_baseColor.png" id="2_s45h2"]
-[ext_resource type="Texture2D" uid="uid://cydoicxgxnd6e" path="res://Assets/player/hand/1001_normal.png" id="3_coxhn"]
-[ext_resource type="Texture2D" uid="uid://bdo4w1yxi7c8s" path="res://Assets/player/hand/1001_occlusionRoughnessMetallic.png" id="4_8yjuh"]
+[ext_resource type="Shader" uid="uid://d008btg6lubdo" path="res://Assets1/player/colormodulator.tres" id="1_6uolc"]
+[ext_resource type="Script" uid="uid://dac8kl4vy2vud" path="res://Assets1/weapons/weaponhandler.gd" id="1_s45h2"]
+[ext_resource type="Texture2D" uid="uid://b37pkbj675at4" path="res://Assets1/player/hand/1001_baseColor.png" id="2_s45h2"]
+[ext_resource type="Texture2D" uid="uid://cydoicxgxnd6e" path="res://Assets1/player/hand/1001_normal.png" id="3_coxhn"]
+[ext_resource type="Texture2D" uid="uid://bdo4w1yxi7c8s" path="res://Assets1/player/hand/1001_occlusionRoughnessMetallic.png" id="4_8yjuh"]
 
 [sub_resource type="Animation" id="Animation_e1ihg"]
 resource_name = "fist_loop"

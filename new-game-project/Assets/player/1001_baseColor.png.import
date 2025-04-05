@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsgdcann4ud82"
-path.bptc="res://.godot/imported/1001_baseColor.png-dcdfc6664012dc58a97007741fe3d7c7.bptc.ctex"
+path.bptc="res://.godot/imported/1001_baseColor.png-fb0d26f0fd636862f4cd7422d2a52d21.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/player/1001_baseColor.png"
-dest_files=["res://.godot/imported/1001_baseColor.png-dcdfc6664012dc58a97007741fe3d7c7.bptc.ctex"]
+source_file="res://Assets1/player/1001_baseColor.png"
+dest_files=["res://.godot/imported/1001_baseColor.png-fb0d26f0fd636862f4cd7422d2a52d21.bptc.ctex"]
 
 [params]
 
