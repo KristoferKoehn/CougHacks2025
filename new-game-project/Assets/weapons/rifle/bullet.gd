@@ -5,7 +5,8 @@ func _ready():
 	start()
 
 func _on_timer_timeout() -> void:
-	queue_free()
+	if is_multiplayer_authority():
+		queue_free()
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
