@@ -30,7 +30,7 @@ public partial class SceneSwitcher : Node
         SurfaceMeshManager.Instance();
         Network.Set("scene_dictionary", NetworkSceneDict);
         Network.Set("object_dictionary", NetworkObjectDict);
-        Network.Set("network_object_spawn", NetworkObjectDict);
+        
 
         Callable c = new Callable(this, MethodName.NetworkSceneChange);
         Network.Connect("scene_change", c);
@@ -50,6 +50,7 @@ public partial class SceneSwitcher : Node
             RemoveChild(previousScene);
         }
         Node3D scene = Scene.Instantiate<Node3D>();
+        Network.Set("network_object_spawn", scene);
         CurrentLevel = scene;
         SceneStack.Push(scene);
         AddChild(scene);
