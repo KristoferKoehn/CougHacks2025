@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://4im3su6q7kjp"]
+
+[ext_resource type="Material" uid="uid://bkr61s05ku73n" path="res://Assets1/groundtextures/groundtexturetest.tres" id="1_k6vw8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xgs2u"]
+size = Vector2(4000, 4000)
+subdivide_width = 180
+subdivide_depth = 180
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.283447, 0, 0)
+mesh = SubResource("PlaneMesh_xgs2u")
+surface_material_override/0 = ExtResource("1_k6vw8")
