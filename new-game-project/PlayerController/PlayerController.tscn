@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://sfdbor7ggasx"]
+
+[ext_resource type="Script" uid="uid://my80cnvxmqjr" path="res://PlayerController/PlayerController.cs" id="1_7fhyf"]
+[ext_resource type="PackedScene" uid="uid://yk8bpu67p5lf" path="res://PlayerController/scaledplayer.tscn" id="2_2ud5e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fhyf"]
+friction = 100.0
+rough = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ud5e"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ycagd"]
+
+[sub_resource type="Shader" id="Shader_7fhyf"]
+code = "shader_type spatial;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	ALBEDO = vec3(UV, 1);
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ps8a3"]
+render_priority = 0
+shader = SubResource("Shader_7fhyf")
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_t3w4r"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("player/Gimbals/board:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="PlayerController" type="RigidBody3D" node_paths=PackedStringArray("cameraGimbal", "player")]
+collision_priority = 10.0
+physics_material_override = SubResource("PhysicsMaterial_7fhyf")
+script = ExtResource("1_7fhyf")
+cameraGimbal = NodePath("CameraGimbal")
+player = NodePath("player")
+
+[node name="player" parent="." instance=ExtResource("2_2ud5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="mesh" parent="player/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = null
+
+[node name="leftarmattach" parent="player/Armature/Skeleton3D" index="10"]
+transform = Transform3D(0.0902673, -0.883967, 0.458753, 0.994545, 0.104188, 0.00506605, -0.0522749, 0.455793, 0.88855, -0.0901521, 1.91339, 0.500155)
+
+[node name="rightarmattach" parent="player/Armature/Skeleton3D" index="11"]
+transform = Transform3D(-0.0877238, 0.730319, 0.67745, -0.995397, -0.0906205, -0.0312024, 0.0386032, -0.677069, 0.734907, 0.0914261, 1.84416, -0.597296)
+
+[node name="mesh" parent="player/Armature/Skeleton3D/rightarmattach/playerhand/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = null
+
+[node name="mesh" parent="player/Gimbals/board" index="0"]
+surface_material_override/0 = null
+
+[node name="WheelCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2ud5e")
+
+[node name="WheelMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ycagd")
+surface_material_override/0 = SubResource("ShaderMaterial_ps8a3")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_t3w4r")
+
+[node name="CameraGimbal" type="Node3D" parent="."]
+top_level = true
+
+[editable path="player"]

@@ -19,6 +19,8 @@ public partial class SceneSwitcher : Node
     public Godot.Collections.Dictionary<int, PackedScene> NetworkObjectDict = new() {
         { 0, GD.Load<PackedScene>("res://GameObjects/TestingObjects/Player_Test.tscn")},
         { 1, GD.Load<PackedScene>("res://GameObjects/TestingObjects/Bullet_Test.tscn")},
+        { 2, GD.Load<PackedScene>("res://PlayerController/PlayerController.tscn")},
+        
     };
 
     public override void _Ready()

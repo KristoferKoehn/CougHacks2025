@@ -1,0 +1,82 @@
+[gd_scene load_steps=17 format=3 uid="uid://c8nwrno5lgtur"]
+
+[ext_resource type="Script" uid="uid://b65i1k5khidgi" path="res://PlayerController/thrusteffect.gd" id="1_ps3q7"]
+[ext_resource type="Shader" uid="uid://c1dh16biss0i0" path="res://Assets/player/thrusteffect.gdshader" id="2_8oo7c"]
+[ext_resource type="Texture2D" uid="uid://cn38w1t6hs87l" path="res://Assets/particles/PNG (Transparent)/muzzle_04.png" id="3_fxr0k"]
+[ext_resource type="Texture2D" uid="uid://cvg876x1x32a6" path="res://Assets/particles/PNG (Transparent)/star_07.png" id="4_cbqo1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_e5rn8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_31ce4"]
+noise_type = 3
+frequency = 0.0137
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_31tjk"]
+noise = SubResource("FastNoiseLite_31ce4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcr18"]
+render_priority = 0
+shader = ExtResource("2_8oo7c")
+shader_parameter/thrustcolor = Vector3(0, 0, 1)
+shader_parameter/sprite = ExtResource("3_fxr0k")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_31tjk")
+shader_parameter/intensity = 1.12
+shader_parameter/cut_factor = 0.4
+shader_parameter/border = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_leuoh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qcr18"]
+noise_type = 3
+frequency = 0.0137
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fuilo"]
+noise = SubResource("FastNoiseLite_qcr18")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vo8tm"]
+render_priority = 0
+shader = ExtResource("2_8oo7c")
+shader_parameter/thrustcolor = Vector3(0, 0, 1)
+shader_parameter/sprite = ExtResource("4_cbqo1")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_fuilo")
+shader_parameter/intensity = 1.0
+shader_parameter/cut_factor = 0.4
+shader_parameter/border = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_3pity"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_frdnq"]
+noise_type = 3
+frequency = 0.0137
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jx44l"]
+noise = SubResource("FastNoiseLite_frdnq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fuilo"]
+render_priority = 0
+shader = ExtResource("2_8oo7c")
+shader_parameter/thrustcolor = Vector3(0, 0, 1)
+shader_parameter/sprite = ExtResource("3_fxr0k")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_jx44l")
+shader_parameter/intensity = 1.0
+shader_parameter/cut_factor = 0.4
+shader_parameter/border = 0.2
+
+[node name="thrusteffect" type="Node3D"]
+script = ExtResource("1_ps3q7")
+
+[node name="flare1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.408148, 0, 0)
+mesh = SubResource("QuadMesh_e5rn8")
+surface_material_override/0 = SubResource("ShaderMaterial_qcr18")
+
+[node name="backsprite" type="MeshInstance3D" parent="flare1"]
+transform = Transform3D(0.707107, -0.707107, -1.28028e-08, -1.28028e-08, -3.09086e-08, 1, -0.707107, -0.707107, -3.09086e-08, 1.78407e-08, -0.408148, 0)
+mesh = SubResource("QuadMesh_leuoh")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_vo8tm")
+
+[node name="flare2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.402804, 0, 0)
+mesh = SubResource("QuadMesh_3pity")
+surface_material_override/0 = SubResource("ShaderMaterial_fuilo")
