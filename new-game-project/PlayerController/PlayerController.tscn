@@ -15,6 +15,9 @@ rough = true
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath(".:Board")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m11co"]
 resource_local_to_scene = true

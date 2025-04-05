@@ -19,6 +19,7 @@ public partial class PlayerController : RigidBody3D
     [Export] private float CameraZValue = 4f;
     [Export] private float CameraDefaultFOV = 75;
     [Export] private float CameraZoomedFOV = 40;
+    [Export] public Vector3 BoardRotation;
     private bool isZoomed = false;
 
     public override void _EnterTree()
@@ -90,6 +91,7 @@ public partial class PlayerController : RigidBody3D
     {
         if (!IsMultiplayerAuthority())
         {
+            GetNode<Node3D>("player/Gimbals/board").Rotation = BoardRotation;
             return;
         }
         player.GlobalPosition = this.GlobalPosition + new Vector3(0,-0.4f,0);
