@@ -128,7 +128,7 @@ func spawn_network_object_helper(pos : Vector3, vel : Vector3, rot : Basis, scen
 
 func add_player(id: int):
 	print("Adding player %s " % str(id))
-	var p = object_dictionary[0].instantiate()
+	var p = object_dictionary[2].instantiate()
 	p.name = str(id)
 	p.multiplayerID = id
 	network_object_spawn.add_child(p, true)
