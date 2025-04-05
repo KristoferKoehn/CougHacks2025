@@ -46,7 +46,7 @@ func _on_lobby_created(_connect, id):
 			switch_scene(0)
 		else:
 			print("error creating lobby: %s " % error)
-	
+
 func join_lobby(id):
 	lobby_id = id
 	Steam.lobby_joined.connect(_on_lobby_joined)
@@ -55,7 +55,7 @@ func join_lobby(id):
 
 func _open_lobby_list():
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
-	#Steam.addRequestLobbyListStringFilter("test","surface", Steam.LOBBY_COMPARISON_EQUAL)
+	Steam.addRequestLobbyListStringFilter("game","surface", Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()
 
 func _on_lobby_match_list(lobbies):

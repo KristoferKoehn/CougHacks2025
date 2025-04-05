@@ -26,7 +26,5 @@ script = ExtResource("2_46eie")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_clsv5")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_clsv5")
