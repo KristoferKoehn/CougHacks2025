@@ -11,6 +11,14 @@
 friction = 100.0
 rough = true
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_t3w4r"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("player/Gimbals/board:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m11co"]
 resource_local_to_scene = true
 render_priority = 0
@@ -67,20 +75,15 @@ void fragment() {
 render_priority = 0
 shader = SubResource("Shader_7fhyf")
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_t3w4r"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath("player/Gimbals/board:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-
 [node name="PlayerController" type="RigidBody3D" node_paths=PackedStringArray("cameraGimbal", "player")]
 collision_priority = 10.0
 physics_material_override = SubResource("PhysicsMaterial_7fhyf")
 script = ExtResource("1_7fhyf")
 cameraGimbal = NodePath("CameraGimbal")
 player = NodePath("player")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_t3w4r")
 
 [node name="player" parent="." instance=ExtResource("2_2ud5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
@@ -109,9 +112,6 @@ shape = SubResource("SphereShape3D_2ud5e")
 [node name="WheelMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ycagd")
 surface_material_override/0 = SubResource("ShaderMaterial_ps8a3")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_t3w4r")
 
 [node name="CameraGimbal" type="Node3D" parent="."]
 top_level = true

@@ -21,6 +21,11 @@ public partial class PlayerController : RigidBody3D
     [Export] private float CameraZoomedFOV = 40;
     private bool isZoomed = false;
 
+    public override void _EnterTree()
+    {
+        SetMultiplayerAuthority(int.Parse(Name));
+    }
+
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -73,7 +78,7 @@ public partial class PlayerController : RigidBody3D
 
             // Apply clamped pitch rotation
             Vector3 currentRotation = cameraGimbal.RotationDegrees;
-            GD.Print(currentRotation);
+            //GD.Print(currentRotation);
             currentRotation.X = pitch;
             cameraGimbal.RotationDegrees = currentRotation;
         }
