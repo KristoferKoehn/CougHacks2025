@@ -16,7 +16,6 @@ func startup():
 
 func _physics_process(delta: float) -> void:
 	
-	print(weaponhandler["slot"])
 	
 	for i in weaponhandler["weapons"]:
 		if i != null:

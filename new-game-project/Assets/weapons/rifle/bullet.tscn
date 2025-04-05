@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://br2gs30c7hpmy"]
 
-[ext_resource type="Script" uid="uid://cscex14jgtt8m" path="res://Assets/weapons/rifle/bullet.gd" id="1_q5cdj"]
+[ext_resource type="Script" uid="uid://cscex14jgtt8m" path="res://Assets1/weapons/rifle/bullet.gd" id="1_q5cdj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8no4d"]
 

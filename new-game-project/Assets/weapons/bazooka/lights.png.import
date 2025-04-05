@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd8xa33f1yun8"
-path="res://.godot/imported/lights.png-5001e759f5bd5b146d0704d12effdd1d.ctex"
+path="res://.godot/imported/lights.png-985fd0eaeb7304ce47f53d9676c4863e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/weapons/bazooka/lights.png"
-dest_files=["res://.godot/imported/lights.png-5001e759f5bd5b146d0704d12effdd1d.ctex"]
+source_file="res://Assets1/weapons/bazooka/lights.png"
+dest_files=["res://.godot/imported/lights.png-985fd0eaeb7304ce47f53d9676c4863e.ctex"]
 
 [params]
 

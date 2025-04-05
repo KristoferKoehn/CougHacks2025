@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://c2exwtifn2fku"]
 
-[ext_resource type="Script" uid="uid://dw0wa2r0ry12b" path="res://Assets/weapons/diskshooter/diskshooter.gd" id="1_b5r6b"]
-[ext_resource type="Texture2D" uid="uid://bsh4v744j5giq" path="res://Assets/weapons/diskshooter/diskshooter_0.png" id="1_ldedu"]
-[ext_resource type="Texture2D" uid="uid://bedvtdnlx0ha4" path="res://Assets/weapons/diskshooter/diskshooter_1.png" id="2_b5r6b"]
-[ext_resource type="Texture2D" uid="uid://d120h1og7y008" path="res://Assets/weapons/diskshooter/diskshooter_2.png" id="3_lta1v"]
+[ext_resource type="Script" uid="uid://dw0wa2r0ry12b" path="res://Assets1/weapons/diskshooter/diskshooter.gd" id="1_b5r6b"]
+[ext_resource type="Texture2D" uid="uid://bsh4v744j5giq" path="res://Assets1/weapons/diskshooter/diskshooter_0.png" id="1_ldedu"]
+[ext_resource type="Texture2D" uid="uid://bedvtdnlx0ha4" path="res://Assets1/weapons/diskshooter/diskshooter_1.png" id="2_b5r6b"]
+[ext_resource type="Texture2D" uid="uid://d120h1og7y008" path="res://Assets1/weapons/diskshooter/diskshooter_2.png" id="3_lta1v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihk3g"]
 resource_name = "1001"

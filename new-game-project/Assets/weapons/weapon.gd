@@ -32,11 +32,11 @@ func finishreload():
 	reloading = false
 
 func shoot():
-	if ammo != 0 and not reloading and canshoot:
+	if ammo != 0 and not reloading and canshoot and active:
 		ammo -= 1
 		canshoot = false 
-		#print(ammo)
-	if ammo == 0 and not reloading:
+		print(ammo)
+	if ammo == 0 and not reloading and active:
 		startreload()
 
 func _physics_process(delta: float) -> void:

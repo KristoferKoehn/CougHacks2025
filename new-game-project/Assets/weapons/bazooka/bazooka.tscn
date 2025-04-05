@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://bags3w62to57o"]
 
-[ext_resource type="Script" uid="uid://c0ld0ct5wtpag" path="res://Assets/weapons/bazooka/bazooka.gd" id="1_nh7fv"]
-[ext_resource type="Texture2D" uid="uid://bym0ftaiwrw4j" path="res://Assets/weapons/bazooka/bazooka_0.png" id="1_tpc0n"]
-[ext_resource type="Texture2D" uid="uid://n0co2gktpm2m" path="res://Assets/weapons/bazooka/bazooka_1.png" id="2_nh7fv"]
-[ext_resource type="Texture2D" uid="uid://dvgvcohgj77el" path="res://Assets/weapons/bazooka/bazooka_2.png" id="3_4kdb6"]
+[ext_resource type="Script" uid="uid://c0ld0ct5wtpag" path="res://Assets1/weapons/bazooka/bazooka.gd" id="1_nh7fv"]
+[ext_resource type="Texture2D" uid="uid://bym0ftaiwrw4j" path="res://Assets1/weapons/bazooka/bazooka_0.png" id="1_tpc0n"]
+[ext_resource type="Texture2D" uid="uid://n0co2gktpm2m" path="res://Assets1/weapons/bazooka/bazooka_1.png" id="2_nh7fv"]
+[ext_resource type="Texture2D" uid="uid://dvgvcohgj77el" path="res://Assets1/weapons/bazooka/bazooka_2.png" id="3_4kdb6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ym51"]
 resource_name = "1001"

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gyd5hd33840c"
-path.s3tc="res://.godot/imported/1001_occlusionRoughnessMetallic.png-e4009404456edb71447aaf4b9304f513.s3tc.ctex"
+path.s3tc="res://.godot/imported/1001_occlusionRoughnessMetallic.png-247964f1bc54f13181b91a60842a9485.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/weapons/rifle/1001_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/1001_occlusionRoughnessMetallic.png-e4009404456edb71447aaf4b9304f513.s3tc.ctex"]
+source_file="res://Assets1/weapons/rifle/1001_occlusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/1001_occlusionRoughnessMetallic.png-247964f1bc54f13181b91a60842a9485.s3tc.ctex"]
 
 [params]
 
