@@ -123,6 +123,9 @@ func rpc_ping_handle(msg: String):
 func rpc_ping(msg : String) -> void:
 	print(msg)
 
+func spawn_network_object_helper(pos : Vector3, vel : Vector3, rot : Basis, scene_ID : int, network_id) -> void:
+	rpc_id(1, "spawn_network_object", pos, vel, rot, scene_ID, network_id)
+
 func add_player(id: int):
 	print("Adding player %s " % str(id))
 	var p = object_dictionary[0].instantiate()

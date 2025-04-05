@@ -23,7 +23,7 @@ public partial class RigidBody3d : RigidBody3D
         if (Input.IsActionJustPressed("jump"))
         {
             SceneSwitcher.Instance().Network.Call("rpc_ping_handle", "frick");
-            SceneSwitcher.Instance().Network.Call("rpc_id", 1, "spawn_network_object", GlobalPosition, new Vector3(0, 10, 0), 1, 1);
+            SceneSwitcher.Instance().Network.Call("rpc_id", 1, "spawn_network_object", GlobalPosition, new Vector3(0, 10, 0), Basis.Identity, 1, 1);
         }
     }
 }
