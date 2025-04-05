@@ -36,7 +36,7 @@ func _on_lobby_created(_connect, id):
 		lobby_id = id
 		Steam.setLobbyJoinable(lobby_id, true)
 		Steam.setLobbyData(lobby_id,"name", str(Steam.getPersonaName() + " TEST LOBBY"))
-		Steam.setLobbyData(lobby_id,"test", "surface")
+		Steam.setLobbyData(lobby_id,"game", "surface")
 		
 		var error = peer.create_host(0)
 		if error == OK:
