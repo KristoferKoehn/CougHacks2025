@@ -94,21 +94,21 @@ func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 			if error == OK:
 				print("connecting to host... ")
 				multiplayer.set_multiplayer_peer(peer)
-				
 			else:
 				print("error creating client: %s " % str(error))
 	else:
 		print("error joining host: %s " % str(error))
 
 @rpc("any_peer", "call_local")
-func spawn_network_object(pos : Vector3, vel : Vector3, rot : Basis, scene_ID : int, network_id) -> void:
+func spawn_network_object(pos : Vector3, vel : float, rot : Vector3, scene_ID : int, network_id) -> void:
 	if multiplayer.get_unique_id() == 1:
 		var b = object_dictionary[scene_ID].instantiate()
-		b.set_multiplayer_authority(network_id)
 		b.name = str(multiplayer.get_unique_id())
+		b.rotation = rot
+		b.set_multiplayer_authority(network_id)
 		network_object_spawn.add_child(b, true)
-		b.linear_velocity = rot * vel
 		b.global_position = pos
+		#b.linear_velocity = rot * vel
 		print("called from " + str(multiplayer.get_remote_sender_id()))
 
 @rpc("authority", "call_local")

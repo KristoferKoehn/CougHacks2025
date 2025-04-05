@@ -9,7 +9,7 @@ var weapons = {
 		"reloadtime" : 1.0,
 		"capacity" : 450,
 		"ammo" : 50,
-		"bulletspeed":150,
+		"bulletspeed":150.0,
 		"damage":25
 	},
 	"diskshooter" : {
@@ -19,7 +19,7 @@ var weapons = {
 		"reloadtime" : 1.0,
 		"capacity" : 49,
 		"ammo" : 1,
-		"bulletspeed":150,
+		"bulletspeed":150.0,
 		"damage":25
 	},
 		"bazooka" : {
@@ -29,7 +29,7 @@ var weapons = {
 		"reloadtime" : 1.0,
 		"capacity" : 99,
 		"ammo" : 1,
-		"bulletspeed":150,
+		"bulletspeed":150.0,
 		"damage":25
 	}
 	}

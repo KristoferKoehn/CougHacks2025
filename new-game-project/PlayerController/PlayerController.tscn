@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://sfdbor7ggasx"]
+[gd_scene load_steps=51 format=4 uid="uid://sfdbor7ggasx"]
 
 [ext_resource type="Script" uid="uid://my80cnvxmqjr" path="res://PlayerController/PlayerController.cs" id="1_7fhyf"]
 [ext_resource type="Script" uid="uid://cw7uxgkst24s0" path="res://PlayerController/player.gd" id="2_m11co"]
@@ -1496,6 +1496,9 @@ void fragment() {
 render_priority = 0
 shader = SubResource("Shader_7fhyf")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lh6h"]
+radius = 0.606511
+
 [node name="PlayerController" type="RigidBody3D" node_paths=PackedStringArray("cameraGimbal", "player")]
 collision_priority = 10.0
 physics_material_override = SubResource("PhysicsMaterial_7fhyf")
@@ -2047,6 +2050,12 @@ surface_material_override/0 = SubResource("ShaderMaterial_ps8a3")
 
 [node name="CameraGimbal" type="Node3D" parent="."]
 top_level = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566614, 0)
+shape = SubResource("CapsuleShape3D_4lh6h")
 
 [editable path="player/Gimbals/board/thrusteffect"]
 [editable path="player/Gimbals/board/thrusteffect2"]

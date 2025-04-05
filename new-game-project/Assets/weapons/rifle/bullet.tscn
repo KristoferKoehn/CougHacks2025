@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://br2gs30c7hpmy"]
+[gd_scene load_steps=8 format=4 uid="uid://br2gs30c7hpmy"]
 
 [ext_resource type="Script" uid="uid://cscex14jgtt8m" path="res://Assets/weapons/rifle/bullet.gd" id="1_q5cdj"]
 
@@ -41,7 +41,20 @@ albedo_color = Color(1, 1, 0, 1)
 emission_enabled = true
 emission = Color(1, 1, 0, 1)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rjqcy"]
+radius = 0.23058
+height = 3.37216
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rjqcy"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="arbullet" type="RigidBody3D"]
+gravity_scale = 0.0
 script = ExtResource("1_q5cdj")
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
@@ -54,4 +67,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rjqcy")
 wait_time = 2.0
 autostart = true
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.307)
+shape = SubResource("CapsuleShape3D_rjqcy")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_rjqcy")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Net.NetworkInformation;
 
 public partial class PlayerController : RigidBody3D
 {
@@ -21,6 +19,8 @@ public partial class PlayerController : RigidBody3D
     [Export] private float CameraZoomedFOV = 40;
     [Export] public Vector3 BoardRotation;
     private bool isZoomed = false;
+
+    public float health = 200;
 
     public override void _EnterTree()
     {
@@ -47,6 +47,12 @@ public partial class PlayerController : RigidBody3D
         }
     }
 
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+    public void ReceiveDamage(float damage)
+    {
+        health -= damage;
+        GD.Print($"sadfasdf{health}");
+    }
 
     public override void _Input(InputEvent @event)
     {
@@ -85,7 +91,6 @@ public partial class PlayerController : RigidBody3D
         }
     }
 
-
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
@@ -121,7 +126,6 @@ public partial class PlayerController : RigidBody3D
             force.X = direction.X * propellingForce;
             force.Z = direction.Z * propellingForce;
         }
-
         ApplyTorque(new Vector3(force.Z, 0, force.X));
     }
 }

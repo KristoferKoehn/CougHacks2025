@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://c1vam8ap8gd2m"]
 
-[ext_resource type="Script" path="res://Assets/weapons/bazooka/rocket.gd" id="1_8vqdi"]
+[ext_resource type="Script" uid="uid://bhmcd63lx0kes" path="res://Assets/weapons/bazooka/rocket.gd" id="1_8vqdi"]
 [ext_resource type="Texture2D" uid="uid://qwss3f1xp1as" path="res://Assets/particles/PNG (Transparent)/smoke_02.png" id="2_01qm3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_br0fc"]
@@ -52,6 +52,7 @@ material = SubResource("StandardMaterial3D_01qm3")
 size = Vector2(0.2, 0.2)
 
 [node name="rocket" type="RigidBody3D"]
+gravity_scale = 0.0
 script = ExtResource("1_8vqdi")
 
 [node name="Circle_001" type="MeshInstance3D" parent="."]

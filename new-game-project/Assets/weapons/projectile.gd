@@ -12,5 +12,5 @@ func statgrabber(title):
 	damage = stats.weapons[title]["damage"]
 	
 func start():
-	linear_velocity = global_transform*speed
+	linear_velocity = global_transform.basis.z * speed
 	

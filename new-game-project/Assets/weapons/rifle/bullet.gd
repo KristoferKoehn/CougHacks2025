@@ -6,3 +6,9 @@ func _ready():
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	var player = area.get_parent() 
+	if player.has_method("ReceiveDamage"):
+		player.rpc_id(player.get_multiplayer_authority(), "ReceiveDamage", damage)

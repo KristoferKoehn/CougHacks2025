@@ -20,7 +20,10 @@ public partial class SceneSwitcher : Node
         { 0, GD.Load<PackedScene>("res://GameObjects/TestingObjects/Player_Test.tscn")},
         { 1, GD.Load<PackedScene>("res://GameObjects/TestingObjects/Bullet_Test.tscn")},
         { 2, GD.Load<PackedScene>("res://PlayerController/PlayerController.tscn")},
-        
+        { 3, GD.Load<PackedScene>("res://Assets/weapons/rifle/bullet.tscn")},
+        { 4, GD.Load<PackedScene>("res://Assets/weapons/diskshooter/disk.tscn")},
+        { 5, GD.Load<PackedScene>("res://Assets/weapons/bazooka/rocket.tscn")},
+
     };
 
     public override void _Ready()
