@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://01q8ciwgwp3j"
-path.s3tc="res://.godot/imported/1001_occlusionRoughnessMetallic.png-fdc879763839ca2086390a8774403cef.s3tc.ctex"
+path.s3tc="res://.godot/imported/1001_occlusionRoughnessMetallic.png-f9661a607aef54afc505d76edc94e533.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets1/weapons/bazooka/1001_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/1001_occlusionRoughnessMetallic.png-fdc879763839ca2086390a8774403cef.s3tc.ctex"]
+source_file="res://Assets/weapons/bazooka/1001_occlusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/1001_occlusionRoughnessMetallic.png-f9661a607aef54afc505d76edc94e533.s3tc.ctex"]
 
 [params]
 

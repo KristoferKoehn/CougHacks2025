@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://bxhsbhqp2c5w"]
+[gd_scene load_steps=10 format=4 uid="uid://c1vam8ap8gd2m"]
 
-[ext_resource type="Script" uid="uid://bhmcd63lx0kes" path="res://Assets1/weapons/bazooka/rocket.gd" id="1_8rd8w"]
+[ext_resource type="Script" path="res://Assets/weapons/bazooka/rocket.gd" id="1_8vqdi"]
+[ext_resource type="Texture2D" uid="uid://qwss3f1xp1as" path="res://Assets/particles/PNG (Transparent)/smoke_02.png" id="2_01qm3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_br0fc"]
 
@@ -35,16 +36,39 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kx4ep")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vqdi"]
+albedo_color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8vqdi"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01qm3"]
+transparency = 1
+albedo_texture = ExtResource("2_01qm3")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_54x3x"]
+material = SubResource("StandardMaterial3D_01qm3")
+size = Vector2(0.2, 0.2)
+
 [node name="rocket" type="RigidBody3D"]
-script = ExtResource("1_8rd8w")
+script = ExtResource("1_8vqdi")
 
 [node name="Circle_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.157131, 0, 0, 0, -6.86842e-09, -0.157131, 0, 0.157131, -6.86842e-09, 0, 3.16472e-09, -0.0724004)
+transform = Transform3D(0.08, 0, 0, 0, -3.49691e-09, -0.08, 0, 0.08, -3.49691e-09, 0, 3.16472e-09, -0.0724004)
 mesh = SubResource("ArrayMesh_401bp")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_8vqdi")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.224356)
+amount = 40
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_8vqdi")
+draw_pass_1 = SubResource("QuadMesh_54x3x")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

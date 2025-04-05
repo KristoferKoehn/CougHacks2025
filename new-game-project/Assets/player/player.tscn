@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=4 uid="uid://b04co66pw2ivw"]
 
-[ext_resource type="Script" uid="uid://cw7uxgkst24s0" path="res://Assets/player/player.gd" id="1_oul6g"]
-[ext_resource type="Shader" uid="uid://d008btg6lubdo" path="res://Assets/player/colormodulator.tres" id="2_qjkh3"]
-[ext_resource type="Texture2D" uid="uid://bsgdcann4ud82" path="res://Assets/player/1001_baseColor.png" id="3_g6k8r"]
-[ext_resource type="Texture2D" uid="uid://ccyy6ue0g0og4" path="res://Assets/player/1001_occlusionRoughnessMetallic.png" id="4_boad6"]
-[ext_resource type="Texture2D" uid="uid://dhftn30ivt2t2" path="res://Assets/player/1001_normal.png" id="5_rgyib"]
+[ext_resource type="Script" uid="uid://cw7uxgkst24s0" path="res://Assets1/player/player.gd" id="1_oul6g"]
+[ext_resource type="Shader" uid="uid://d008btg6lubdo" path="res://Assets1/player/colormodulator.tres" id="2_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://bsgdcann4ud82" path="res://Assets1/player/1001_baseColor.png" id="3_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://ccyy6ue0g0og4" path="res://Assets1/player/1001_occlusionRoughnessMetallic.png" id="4_boad6"]
+[ext_resource type="Texture2D" uid="uid://dhftn30ivt2t2" path="res://Assets1/player/1001_normal.png" id="5_rgyib"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkp4x"]
 resource_name = "Material.011"

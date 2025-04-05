@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bedvtdnlx0ha4"
-path.s3tc="res://.godot/imported/diskshooter_1.png-6a0250ade0ae2fb5c5ed763a69903ec1.s3tc.ctex"
+path.s3tc="res://.godot/imported/diskshooter_1.png-3f250abda0c8a39332d5423b0ce29c55.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets1/weapons/diskshooter/diskshooter_1.png"
-dest_files=["res://.godot/imported/diskshooter_1.png-6a0250ade0ae2fb5c5ed763a69903ec1.s3tc.ctex"]
+source_file="res://Assets/weapons/diskshooter/diskshooter_1.png"
+dest_files=["res://.godot/imported/diskshooter_1.png-3f250abda0c8a39332d5423b0ce29c55.s3tc.ctex"]
 
 [params]
 

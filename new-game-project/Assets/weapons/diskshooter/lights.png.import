@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7m3l31h3ovm3"
-path="res://.godot/imported/lights.png-ee93f68e804979daf98c7fbbf7930afe.ctex"
+path="res://.godot/imported/lights.png-81584383f44cab9c079ae3368aacacea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets1/weapons/diskshooter/lights.png"
-dest_files=["res://.godot/imported/lights.png-ee93f68e804979daf98c7fbbf7930afe.ctex"]
+source_file="res://Assets/weapons/diskshooter/lights.png"
+dest_files=["res://.godot/imported/lights.png-81584383f44cab9c079ae3368aacacea.ctex"]
 
 [params]
 

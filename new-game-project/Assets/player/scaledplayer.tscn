@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://yk8bpu67p5lf"]
+[gd_scene load_steps=37 format=4 uid="uid://yk8bpu67p5lf"]
 
 [ext_resource type="Script" uid="uid://cw7uxgkst24s0" path="res://Assets/player/player.gd" id="1_ouvrx"]
 [ext_resource type="Shader" uid="uid://d008btg6lubdo" path="res://Assets/player/colormodulator.tres" id="2_8sfut"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b37pkbj675at4" path="res://Assets/player/hand/1001_baseColor.png" id="9_gq32x"]
 [ext_resource type="Texture2D" uid="uid://cydoicxgxnd6e" path="res://Assets/player/hand/1001_normal.png" id="10_fmupc"]
 [ext_resource type="Texture2D" uid="uid://bdo4w1yxi7c8s" path="res://Assets/player/hand/1001_occlusionRoughnessMetallic.png" id="11_rd686"]
+[ext_resource type="PackedScene" uid="uid://c8nwrno5lgtur" path="res://Assets/player/thrusteffect.tscn" id="15_4au8e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkp4x"]
 resource_name = "Material"
@@ -103,7 +104,7 @@ shader_parameter/markone = Vector3(0.9, 0.9, 0.9)
 shader_parameter/marktwo = Vector3(0.7, 0.7, 0.7)
 shader_parameter/light = Vector3(2, 2, 2)
 shader_parameter/fade = 1.0
-shader_parameter/threshold = 0.3
+shader_parameter/threshold = 0.845
 shader_parameter/redthreshold = 0.3
 shader_parameter/bluthreshold = 0.3
 shader_parameter/grethreshold = 0.3
@@ -1205,6 +1206,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.376, 1.735, -2.167)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="board/armrotator/rightarmlookat"]
 visible = false
 mesh = SubResource("SphereMesh_30xa6")
+
+[node name="thrusteffect" parent="board" instance=ExtResource("15_4au8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68602, -0.168854, -0.291968)
+
+[node name="thrusteffect2" parent="board" instance=ExtResource("15_4au8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68602, -0.168854, 0.259141)
 
 [node name="aimnode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32721, 2.87912, -9.44033)

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ttcq8q36dd4r"
-path="res://.godot/imported/diskshooter.gltf-0814d00503a299ca02aa9de6f89887c9.scn"
+path="res://.godot/imported/diskshooter.gltf-b553d69e9e9040c5206369a75939f6fa.scn"
 
 [deps]
 
-source_file="res://Assets1/weapons/diskshooter/diskshooter.gltf"
-dest_files=["res://.godot/imported/diskshooter.gltf-0814d00503a299ca02aa9de6f89887c9.scn"]
+source_file="res://Assets/weapons/diskshooter/diskshooter.gltf"
+dest_files=["res://.godot/imported/diskshooter.gltf-b553d69e9e9040c5206369a75939f6fa.scn"]
 
 [params]
 
