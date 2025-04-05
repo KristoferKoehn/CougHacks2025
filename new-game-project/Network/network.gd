@@ -79,7 +79,8 @@ func _on_connecting_client(client_ID):
 	peer_connected.emit(client_ID) #notify the rest of the program
 	if client_ID != 1:
 		switch_scene.rpc_id(client_ID, 1) # 1 is main level
-		spawn_network_object.rpc_id(client_ID, Vector3(0,20,0), Vector3(0,0,0), Basis.IDENTITY, 0, client_ID)
+		#spawn_network_object.rpc_id(client_ID, Vector3(0,20,0), Vector3(0,0,0), Basis.IDENTITY, 0, client_ID)
+		add_player(client_ID)
 
 func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 	if error == 1:
@@ -119,3 +120,9 @@ func rpc_ping_handle(msg: String):
 @rpc("any_peer", "call_local")
 func rpc_ping(msg : String) -> void:
 	print(msg)
+
+func add_player(id: int):
+	print("Adding player %s " % str(id))
+	var p = object_dictionary[0].instantiate()
+	p.multiplayerID = id;
+	network_object_spawn.add_child(p, true)
