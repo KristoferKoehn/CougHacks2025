@@ -9,8 +9,8 @@ public partial class SurfaceManager : Node
 
     //start surface parameterization:
     [Export] public float Plane_Radius = 4000.0f;
-    [Export] public float Noise_Scale = 10f;
-    [Export] public float Time_Scale = 0.2f;
+    [Export] public float Noise_Scale = 5f;
+    [Export] public float Time_Scale = 0.1f;
     [Export] public float Seed = 20f;
     [Export] public Vector2 SubdivisionSize = new Vector2(1024, 1024);
 

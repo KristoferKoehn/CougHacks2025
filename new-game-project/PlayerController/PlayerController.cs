@@ -6,7 +6,7 @@ public partial class PlayerController : RigidBody3D
 {
     [Export] Node3D cameraGimbal;
     [Export] CharacterBody3D player;
-    public const float propellingForce = 50.0f;
+    public const float propellingForce = 5.0f;
     public const float jumpForce = 1000.0f;
     private float pitch = -45f;
 
