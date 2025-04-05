@@ -11,7 +11,6 @@ var object_dictionary : Dictionary[int, PackedScene]
 
 signal scene_change(scene_id)
 signal peer_connected(peer_id)
-signal joined_as_client
 
 func _init():
 	OS.set_environment("SteamAppID", "480")
@@ -91,7 +90,7 @@ func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 			if error == OK:
 				print("connecting to host... ")
 				multiplayer.set_multiplayer_peer(peer)
-				spawn_network_object.rpc_id(1, Vector3(1,10,0), Vector3.ZERO, Basis.IDENTITY, 0, multiplayer.get_unique_id())
+				
 			else:
 				print("error creating client: %s " % str(error))
 	else:

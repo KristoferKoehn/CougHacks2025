@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://0o21lw2fqo1q"]
+[gd_scene load_steps=6 format=3 uid="uid://0o21lw2fqo1q"]
 
 [ext_resource type="PackedScene" uid="uid://jow1p38v05li" path="res://GameObjects/Surface/Surface.tscn" id="1_6io7f"]
+[ext_resource type="Script" uid="uid://ctb1h2ijetopa" path="res://Levels/Level0.cs" id="1_ff0on"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_glv2v"]
 
@@ -14,6 +15,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_ff0on")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r0du0")
