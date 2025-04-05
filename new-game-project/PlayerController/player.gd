@@ -9,8 +9,8 @@ extends CharacterBody3D
 @onready var armrotator = $Gimbals/board/armrotator/rightarmlookat
 @onready var aimcast = $Gimbals/CameraGimbal/SpringArm3D/Camera3D/RayCast3D
 @onready var camera = $Gimbals/CameraGimbal/SpringArm3D/Camera3D
-@onready var springarm  = $camerapivot/SpringArm3D
-@onready var camtrack = $camerapivot/SpringArm3D/camtrack
+#@onready var springarm  = $camerapivot/SpringArm3D
+#@onready var camtrack = $camerapivot/SpringArm3D/camtrack
 @onready var lefthand = $Armature/Skeleton3D/leftarmattach/playerhand
 @onready var righthand = $Armature/Skeleton3D/rightarmattach/playerhand
 

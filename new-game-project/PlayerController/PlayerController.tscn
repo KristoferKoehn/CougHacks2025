@@ -1,11 +1,45 @@
-[gd_scene load_steps=9 format=3 uid="uid://sfdbor7ggasx"]
+[gd_scene load_steps=14 format=3 uid="uid://sfdbor7ggasx"]
 
 [ext_resource type="Script" uid="uid://my80cnvxmqjr" path="res://PlayerController/PlayerController.cs" id="1_7fhyf"]
 [ext_resource type="PackedScene" uid="uid://yk8bpu67p5lf" path="res://PlayerController/scaledplayer.tscn" id="2_2ud5e"]
+[ext_resource type="Shader" uid="uid://d008btg6lubdo" path="res://Assets/player/colormodulator.tres" id="3_71ti0"]
+[ext_resource type="Texture2D" uid="uid://b37pkbj675at4" path="res://Assets/player/hand/1001_baseColor.png" id="4_7oo2a"]
+[ext_resource type="Texture2D" uid="uid://cydoicxgxnd6e" path="res://Assets/player/hand/1001_normal.png" id="5_3o4bl"]
+[ext_resource type="Texture2D" uid="uid://bdo4w1yxi7c8s" path="res://Assets/player/hand/1001_occlusionRoughnessMetallic.png" id="6_s3jlx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fhyf"]
 friction = 100.0
 rough = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m11co"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_71ti0")
+shader_parameter/primary = Vector3(0.4, 0.4, 0.4)
+shader_parameter/secondary = Vector3(0.2, 0.2, 0.2)
+shader_parameter/frame = Vector3(0.15, 0.15, 0.15)
+shader_parameter/markone = Vector3(0.9, 0.9, 0.9)
+shader_parameter/marktwo = Vector3(0.7, 0.7, 0.7)
+shader_parameter/light = Vector3(0, 0, 2)
+shader_parameter/fade = 1.0
+shader_parameter/threshold = 0.3
+shader_parameter/redthreshold = 0.3
+shader_parameter/bluthreshold = 0.3
+shader_parameter/grethreshold = 0.3
+shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/texture_albedo = ExtResource("4_7oo2a")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("6_s3jlx")
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("5_3o4bl")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ud5e"]
 
@@ -57,6 +91,9 @@ surface_material_override/0 = null
 [node name="leftarmattach" parent="player/Armature/Skeleton3D" index="10"]
 transform = Transform3D(0.0902673, -0.883967, 0.458753, 0.994545, 0.104188, 0.00506605, -0.0522749, 0.455793, 0.88855, -0.0901521, 1.91339, 0.500155)
 
+[node name="mesh" parent="player/Armature/Skeleton3D/leftarmattach/playerhand/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_m11co")
+
 [node name="rightarmattach" parent="player/Armature/Skeleton3D" index="11"]
 transform = Transform3D(-0.0877238, 0.730319, 0.67745, -0.995397, -0.0906205, -0.0312024, 0.0386032, -0.677069, 0.734907, 0.0914261, 1.84416, -0.597296)
 
@@ -80,3 +117,6 @@ replication_config = SubResource("SceneReplicationConfig_t3w4r")
 top_level = true
 
 [editable path="player"]
+[editable path="player/Armature/Skeleton3D/leftarmattach/playerhand"]
+[editable path="player/Gimbals/board/thrusteffect"]
+[editable path="player/Gimbals/board/thrusteffect2"]

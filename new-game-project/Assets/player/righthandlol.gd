@@ -1,2 +1,2 @@
 extends Node3D
-@onready var antree = $AnimationTree
+@onready var antree = $AnimationPlayer

@@ -130,6 +130,5 @@ func add_player(id: int):
 	print("Adding player %s " % str(id))
 	var p = object_dictionary[2].instantiate()
 	p.name = str(id)
-	p.multiplayerID = id
 	network_object_spawn.add_child(p, true)
 	p.set_multiplayer_authority(id)
