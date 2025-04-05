@@ -105,9 +105,10 @@ func spawn_network_object(pos : Vector3, vel : float, rot : Vector3, scene_ID : 
 		var b = object_dictionary[scene_ID].instantiate()
 		b.name = str(multiplayer.get_unique_id())
 		b.rotation = rot
-		b.set_multiplayer_authority(network_id)
+		b.set_multiplayer_authority(1)
 		network_object_spawn.add_child(b, true)
 		b.global_position = pos
+		b.set_multiplayer_authority(network_id)
 		b.source = network_id
 		#b.linear_velocity = rot * vel
 		print("called from " + str(multiplayer.get_remote_sender_id()))
