@@ -90,7 +90,7 @@ func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 			peer = SteamMultiplayerPeer.new()
 			peer.create_client(Steam.getLobbyOwner(lobby_id), 0)
 			multiplayer.multiplayer_peer = peer
-			spawn_network_object(Vector3(1,10,0), Vector3.ZERO, Basis.IDENTITY, 0, multiplayer.get_unique_id())
+			spawn_network_object.rpc_id(1, Vector3(1,10,0), Vector3.ZERO, Basis.IDENTITY, 0, multiplayer.get_unique_id())
 	else:
 		print("error joining host: %s " % str(error))
 
