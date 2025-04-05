@@ -68,7 +68,6 @@ public partial class SurfaceManager : Node
     public void SubscribeCollisionObject(Node3D node)
     {
         CollisionBlock cb = CollisionBlockScene.Instantiate<CollisionBlock>();
-        GD.Print(SceneSwitcher.CurrentLevel);
         SceneSwitcher.CurrentLevel.CallDeferred("add_child", cb);
         cb.SubscribeObject(node);
     }
