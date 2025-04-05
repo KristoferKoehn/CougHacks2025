@@ -43,7 +43,7 @@ func _on_lobby_created(_connect, id):
 			multiplayer.set_multiplayer_peer(peer)
 			multiplayer.peer_connected.connect(_on_connecting_client)
 			print(lobby_id)
-			switch_scene(0)
+			switch_scene(1)
 		else:
 			print("error creating lobby: %s " % error)
 
@@ -78,7 +78,7 @@ func _on_connecting_client(client_ID):
 	print("Client Connected: " + str(client_ID))
 	peer_connected.emit(client_ID) #notify the rest of the program
 	if client_ID != 1:
-		switch_scene.rpc_id(client_ID, 0) # zero is main level
+		switch_scene.rpc_id(client_ID, 1) # 1 is main level
 
 func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 	if error == 1:
