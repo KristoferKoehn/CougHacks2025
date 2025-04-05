@@ -8,6 +8,7 @@ public partial class RigidBody3d : RigidBody3D
     public override void _EnterTree()
     {
         SetMultiplayerAuthority(int.Parse(Name));
+        GlobalPosition = new Vector3(0, 40, 0);
     }
 
     public override void _Ready()
