@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bx8wfs3j0qnpt"
-path="res://.godot/imported/stormcellhand.glb-cabb13ce9966f17eabdbeb9e1eb52cbb.scn"
+path="res://.godot/imported/stormcellhand.glb-e3c5514aa014c13ad161aa3e64658734.scn"
 
 [deps]
 
-source_file="res://Assets1/player/hand/stormcellhand.glb"
-dest_files=["res://.godot/imported/stormcellhand.glb-cabb13ce9966f17eabdbeb9e1eb52cbb.scn"]
+source_file="res://Assets/player/hand/stormcellhand.glb"
+dest_files=["res://.godot/imported/stormcellhand.glb-e3c5514aa014c13ad161aa3e64658734.scn"]
 
 [params]
 

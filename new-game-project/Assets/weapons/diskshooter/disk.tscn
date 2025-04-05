@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://b5hq6bj2gnnay"]
+[gd_scene load_steps=12 format=4 uid="uid://ue761avv4nmj"]
 
-[ext_resource type="Script" uid="uid://2bq62iiv8et8" path="res://Assets1/weapons/diskshooter/disk.gd" id="1_bjxx3"]
+[ext_resource type="Script" path="res://Assets/weapons/diskshooter/disk.gd" id="1_0dy1q"]
+[ext_resource type="Shader" uid="uid://hyywkg83yf0k" path="res://Assets/weapons/diskshooter/disk.gdshader" id="2_k2kjk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thb7a"]
 
@@ -36,15 +37,51 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cn74b")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k2kjk"]
+frequency = 0.0036
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_robeq"]
+noise = SubResource("FastNoiseLite_k2kjk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_robeq"]
+render_priority = 0
+shader = ExtResource("2_k2kjk")
+shader_parameter/xrot = 0.0
+shader_parameter/yrot = 1.0
+shader_parameter/zrot = 0.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_robeq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k2kjk"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_robeq"]
+albedo_color = Color(1, 0.141176, 1, 1)
+emission_enabled = true
+emission = Color(1, 0.384999, 0.990529, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_qsk4e"]
+material = SubResource("StandardMaterial3D_robeq")
+size = Vector2(0.05, 0.05)
+
 [node name="disk" type="RigidBody3D"]
-script = ExtResource("1_bjxx3")
+script = ExtResource("1_0dy1q")
 
 [node name="Circle" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_rc4ig")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_robeq")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 35
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_k2kjk")
+draw_pass_1 = SubResource("QuadMesh_qsk4e")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

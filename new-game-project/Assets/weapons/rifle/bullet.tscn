@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://br2gs30c7hpmy"]
+[gd_scene load_steps=6 format=4 uid="uid://br2gs30c7hpmy"]
 
-[ext_resource type="Script" uid="uid://cscex14jgtt8m" path="res://Assets1/weapons/rifle/bullet.gd" id="1_q5cdj"]
+[ext_resource type="Script" uid="uid://cscex14jgtt8m" path="res://Assets/weapons/rifle/bullet.gd" id="1_q5cdj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8no4d"]
 
@@ -36,6 +36,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wxxa1")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjqcy"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
 [node name="arbullet" type="RigidBody3D"]
 script = ExtResource("1_q5cdj")
 
@@ -43,6 +48,7 @@ script = ExtResource("1_q5cdj")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3mvw4")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_rjqcy")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

@@ -35,7 +35,7 @@ func shoot():
 	if ammo != 0 and not reloading and canshoot and active:
 		ammo -= 1
 		canshoot = false 
-		print(ammo)
+		Network.rpc_id(1, "spawn_network_object", spawner.global_position, stats.weapons[weapontitle]["bulletspeed"],spawner.global_basis, )
 	if ammo == 0 and not reloading and active:
 		startreload()
 

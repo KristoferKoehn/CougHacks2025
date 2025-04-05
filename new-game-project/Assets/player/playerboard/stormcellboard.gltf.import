@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dw2x2x3nncp0c"
-path="res://.godot/imported/stormcellboard.gltf-2b74e5a44b285ddf81b30ced0759a2ed.scn"
+path="res://.godot/imported/stormcellboard.gltf-761d336895993df0e73f7b5134fda3f3.scn"
 
 [deps]
 
-source_file="res://Assets1/player/playerboard/stormcellboard.gltf"
-dest_files=["res://.godot/imported/stormcellboard.gltf-2b74e5a44b285ddf81b30ced0759a2ed.scn"]
+source_file="res://Assets/player/playerboard/stormcellboard.gltf"
+dest_files=["res://.godot/imported/stormcellboard.gltf-761d336895993df0e73f7b5134fda3f3.scn"]
 
 [params]
 
