@@ -20,7 +20,6 @@ func _ready():
 	Steam.lobby_created.connect(_on_lobby_created)
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 
-
 func _on_host_pressed():
 	print("host button pressed")
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 32)
@@ -54,12 +53,11 @@ func join_lobby(id):
 	Steam.joinLobby(lobby_id)
 	print("Attempting join on " + str(lobby_id) + " ")
 
-
 func _open_lobby_list():
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
 	#Steam.addRequestLobbyListStringFilter("test","surface", Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()
-	
+
 func _on_lobby_match_list(lobbies):
 	if lobby_list_container.get_child_count() > 0:
 		for v in lobby_list_container.get_children():
@@ -75,13 +73,13 @@ func _on_lobby_match_list(lobbies):
 		bt.connect("pressed", Callable(self, "join_lobby").bind(lobby))
 		
 		lobby_list_container.add_child(bt)
-		
+
 func _on_connecting_client(client_ID):
 	print("Client Connected: " + str(client_ID))
 	peer_connected.emit(client_ID) #notify the rest of the program
 	if client_ID != 1:
 		switch_scene.rpc_id(client_ID, 0) # zero is main level
-		
+
 func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 	if error == 1:
 		if Steam.getLobbyOwner(lobby_id) != Steam.getSteamID():

@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyq1vgffno26l"]
+
+[ext_resource type="Script" uid="uid://c11p3yi56v5ua" path="res://Menu/ServerMenu.cs" id="1_l4ukn"]
+
+[node name="ServerMenu" type="Node3D" node_paths=PackedStringArray("Container")]
+script = ExtResource("1_l4ukn")
+Container = NodePath("CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 42.0
+offset_right = 1063.0
+offset_bottom = 576.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Panel/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="RefreshButton" type="Button" parent="CanvasLayer/Control/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Refresh"
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 81.0
+offset_top = 164.0
+offset_right = 185.0
+offset_bottom = 296.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HostButton" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.0
+offset_top = -285.0
+offset_right = -272.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -11.5
+offset_right = 115.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SELECT SERVER OR HOST NEW"
+
+[connection signal="pressed" from="CanvasLayer/Control/Panel/VBoxContainer/RefreshButton" to="." method="RefreshButtonPressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/HostButton" to="." method="OnHostPressed"]
