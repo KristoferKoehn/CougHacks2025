@@ -1,10 +1,12 @@
 using Godot;
 using System;
+using System.Net;
 
 public partial class Level0 : Node3D
 {
     public override void _Ready()
     {
+        SceneSwitcher.Instance().Network.Set("network_object_spawn", this);
         SpawnClientPlayer();
     }
 
