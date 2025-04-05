@@ -79,6 +79,7 @@ func _on_connecting_client(client_ID):
 	peer_connected.emit(client_ID) #notify the rest of the program
 	if client_ID != 1:
 		switch_scene.rpc_id(client_ID, 1) # 1 is main level
+		spawn_network_object.rpc(Vector3(0,20,0), Vector3(0,0,0), Basis.IDENTITY, 0, 1)
 
 func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 	if error == 1:
