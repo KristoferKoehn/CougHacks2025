@@ -13,6 +13,7 @@ public partial class SceneSwitcher : Node
     public Godot.Collections.Dictionary<int, PackedScene> NetworkSceneDict = new() {
         { 0, GD.Load<PackedScene>("res://Menu/ServerMenu.tscn")},
         { 1, GD.Load<PackedScene>("res://Levels/Level0.tscn")},
+        { 2, GD.Load<PackedScene>("res://Levels/desert.tscn")},
     };
 
     public Godot.Collections.Dictionary<int, PackedScene> NetworkObjectDict = new() {
@@ -30,8 +31,8 @@ public partial class SceneSwitcher : Node
         SurfaceMeshManager.Instance();
         Network.Set("scene_dictionary", NetworkSceneDict);
         Network.Set("object_dictionary", NetworkObjectDict);
-        Network.Set("network_object_spawn", NetworkObjectDict);
-
+        Network.Set("network_object_spawn", GetNode<Node3D>("MultiplayerSpawnNode"));
+        GD.Print($"ATTACHING SPAWNER NODE: {GetNode<Node3D>("MultiplayerSpawnNode")}");
         Callable c = new Callable(this, MethodName.NetworkSceneChange);
         Network.Connect("scene_change", c);
     }
@@ -50,6 +51,7 @@ public partial class SceneSwitcher : Node
             RemoveChild(previousScene);
         }
         Node3D scene = Scene.Instantiate<Node3D>();
+
         CurrentLevel = scene;
         SceneStack.Push(scene);
         AddChild(scene);

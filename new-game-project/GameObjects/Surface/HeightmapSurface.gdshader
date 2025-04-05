@@ -45,5 +45,5 @@ void fragment()
 	//vec3 fresnel = fresnel_glow(4.0, 4.5, fresnel_color, NORMAL, VIEW); <- OG shit
 	vec3 fresnel = fresnel_glow(_amount, _intensity, fresnel_color, NORMAL, VIEW);
 	ALBEDO = base_color + fresnel;
-	ALPHA = clamp(length(fresnel), 0.0, 0.8); //* clamp(cull_test, 0, 1.0)
+	ALPHA = clamp(length(fresnel) * clamp(cull_test, 0, 1.0), 0.0, 0.8); //
 }

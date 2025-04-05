@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://cge2ctn7mimpf"]
+[gd_scene load_steps=17 format=3 uid="uid://c5briidcb8jej"]
 
-[ext_resource type="PackedScene" uid="uid://cw81h10fm33e6" path="res://Assets/mapassets/stormwall.tscn" id="1_skrgo"]
-[ext_resource type="PackedScene" uid="uid://4im3su6q7kjp" path="res://Assets/groundtextures/groundtexturetest.tscn" id="3_7es51"]
-[ext_resource type="PackedScene" uid="uid://ct1kvqheva234" path="res://Assets/mapassets/oddbuilding.tscn" id="4_jx1o8"]
-[ext_resource type="PackedScene" uid="uid://b8h2hlidv8usw" path="res://Assets/mapassets/bigbuilding.tscn" id="5_sv0qn"]
-[ext_resource type="PackedScene" uid="uid://icbxmhqfs1j5" path="res://Assets/mapassets/verticalbuilding.tscn" id="6_kgo0y"]
-[ext_resource type="PackedScene" uid="uid://f70j8x40lafl" path="res://Assets/mapassets/panel.tscn" id="6_sv0qn"]
+[ext_resource type="PackedScene" uid="uid://cw81h10fm33e6" path="res://Assets/mapassets/stormwall.tscn" id="1_w8rqx"]
+[ext_resource type="PackedScene" uid="uid://4im3su6q7kjp" path="res://Assets/groundtextures/groundtexturetest.tscn" id="3_5s42w"]
+[ext_resource type="PackedScene" uid="uid://ct1kvqheva234" path="res://Assets/mapassets/oddbuilding.tscn" id="4_ardvj"]
+[ext_resource type="PackedScene" uid="uid://b8h2hlidv8usw" path="res://Assets/mapassets/bigbuilding.tscn" id="5_enk3p"]
+[ext_resource type="PackedScene" uid="uid://f70j8x40lafl" path="res://Assets/mapassets/panel.tscn" id="6_6c331"]
+[ext_resource type="PackedScene" uid="uid://icbxmhqfs1j5" path="res://Assets/mapassets/verticalbuilding.tscn" id="7_4rcxv"]
+[ext_resource type="PackedScene" uid="uid://jow1p38v05li" path="res://GameObjects/Surface/Surface.tscn" id="7_w8rqx"]
 
 [sub_resource type="Shader" id="Shader_7es51"]
 code = "
@@ -200,46 +201,49 @@ transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.371
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34283, 0, 12.9456)
 shape = SubResource("BoxShape3D_bhknf")
 
-[node name="stormwall" parent="." instance=ExtResource("1_skrgo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47.3367, 0)
+[node name="stormwall" parent="." instance=ExtResource("1_w8rqx")]
+transform = Transform3D(3.075, 0, 0, 0, 3.075, 0, 0, 0, 3.075, 0, 47.3367, 0)
 
-[node name="Node3D" parent="." instance=ExtResource("3_7es51")]
+[node name="Node3D" parent="." instance=ExtResource("3_5s42w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1022.09, 0)
 
 [node name="terrain" type="Node3D" parent="."]
 
-[node name="oddbuilding" parent="terrain" instance=ExtResource("4_jx1o8")]
+[node name="oddbuilding" parent="terrain" instance=ExtResource("4_ardvj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -285.295, 0, 0)
 
-[node name="oddbuilding2" parent="terrain" instance=ExtResource("4_jx1o8")]
+[node name="oddbuilding2" parent="terrain" instance=ExtResource("4_ardvj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 309.91, 0, -5.20344e-05)
 
-[node name="bigbuilding" parent="terrain" instance=ExtResource("5_sv0qn")]
+[node name="bigbuilding" parent="terrain" instance=ExtResource("5_enk3p")]
 transform = Transform3D(0.688393, 0, 0.725338, 0, 1, 0, -0.725338, 0, 0.688393, -95.7314, 0, 114.377)
 
-[node name="panel" parent="terrain/bigbuilding" instance=ExtResource("6_sv0qn")]
+[node name="panel" parent="terrain/bigbuilding" instance=ExtResource("6_6c331")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6455, 0)
 
-[node name="bigbuilding2" parent="terrain" instance=ExtResource("5_sv0qn")]
+[node name="bigbuilding2" parent="terrain" instance=ExtResource("5_enk3p")]
 transform = Transform3D(-0.647867, 0, -0.761753, 0, 1, 0, 0.761753, 0, -0.647867, 93.3399, 0, -95.2038)
 
-[node name="panel" parent="terrain/bigbuilding2" instance=ExtResource("6_sv0qn")]
+[node name="panel" parent="terrain/bigbuilding2" instance=ExtResource("6_6c331")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2217, 0)
 
-[node name="verticalbuilding" parent="terrain" instance=ExtResource("6_kgo0y")]
+[node name="verticalbuilding" parent="terrain" instance=ExtResource("7_4rcxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.7565, 0, -82.327)
 
-[node name="verticalbuilding" parent="terrain/verticalbuilding" instance=ExtResource("6_kgo0y")]
+[node name="verticalbuilding" parent="terrain/verticalbuilding" instance=ExtResource("7_4rcxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8361, 0, 0)
 
-[node name="verticalbuilding2" parent="terrain/verticalbuilding" instance=ExtResource("6_kgo0y")]
+[node name="verticalbuilding2" parent="terrain/verticalbuilding" instance=ExtResource("7_4rcxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.5433)
 
-[node name="verticalbuilding2" parent="terrain" instance=ExtResource("6_kgo0y")]
+[node name="verticalbuilding2" parent="terrain" instance=ExtResource("7_4rcxv")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 79.7281, 0, 67.6482)
 
-[node name="verticalbuilding" parent="terrain/verticalbuilding2" instance=ExtResource("6_kgo0y")]
+[node name="verticalbuilding" parent="terrain/verticalbuilding2" instance=ExtResource("7_4rcxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8361, 0, 0)
 
-[node name="verticalbuilding2" parent="terrain/verticalbuilding2" instance=ExtResource("6_kgo0y")]
+[node name="verticalbuilding2" parent="terrain/verticalbuilding2" instance=ExtResource("7_4rcxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.5433)
+
+[node name="Surface" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("7_w8rqx")]
+collisionShape = NodePath("StaticBody3D/CollisionShape3D")

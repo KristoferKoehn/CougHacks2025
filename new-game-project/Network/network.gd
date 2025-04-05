@@ -24,6 +24,7 @@ func _ready():
 func _on_host_pressed():
 	print("host button pressed")
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 32)
+	multiplayer.peer_connected.connect(add_player)
 
 func _process(_delta):
 	Steam.run_callbacks()
@@ -44,7 +45,8 @@ func _on_lobby_created(_connect, id):
 			multiplayer.set_multiplayer_peer(peer)
 			multiplayer.peer_connected.connect(_on_connecting_client)
 			print(lobby_id)
-			switch_scene(1)
+			switch_scene(2)
+			add_player(1)
 		else:
 			print("error creating lobby: %s " % error)
 
@@ -78,9 +80,9 @@ func _on_connecting_client(client_ID):
 	print("Client Connected: " + str(client_ID))
 	peer_connected.emit(client_ID) #notify the rest of the program
 	if client_ID != 1:
-		switch_scene.rpc_id(client_ID, 1) # 1 is main level
+		switch_scene.rpc_id(client_ID, 2) # 1 is main level
 		#spawn_network_object.rpc_id(client_ID, Vector3(0,20,0), Vector3(0,0,0), Basis.IDENTITY, 0, client_ID)
-		add_player(client_ID)
+		#add_player(client_ID)
 
 func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 	if error == 1:
@@ -121,8 +123,13 @@ func rpc_ping_handle(msg: String):
 func rpc_ping(msg : String) -> void:
 	print(msg)
 
+func spawn_network_object_helper(pos : Vector3, vel : Vector3, rot : Basis, scene_ID : int, network_id) -> void:
+	rpc_id(1, "spawn_network_object", pos, vel, rot, scene_ID, network_id)
+
 func add_player(id: int):
 	print("Adding player %s " % str(id))
 	var p = object_dictionary[0].instantiate()
-	p.set_multiplayer_authority(id);
+	p.name = str(id)
+	p.multiplayerID = id
 	network_object_spawn.add_child(p, true)
+	p.set_multiplayer_authority(id)
