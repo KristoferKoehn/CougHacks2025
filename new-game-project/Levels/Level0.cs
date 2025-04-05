@@ -7,7 +7,7 @@ public partial class Level0 : Node3D
     public override void _Ready()
     {
         SceneSwitcher.Instance().Network.Set("network_object_spawn", this);
-        GetTree().CreateTimer(0.7).Timeout += SpawnClientPlayer;
+        //GetTree().CreateTimer(0.7).Timeout += SpawnClientPlayer;
     }
 
     public void SpawnClientPlayer()
