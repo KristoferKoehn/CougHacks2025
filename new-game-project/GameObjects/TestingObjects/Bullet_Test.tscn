@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2bc1v1emtsdq"]
+[gd_scene load_steps=5 format=3 uid="uid://d2bc1v1emtsdq"]
 
 [sub_resource type="Shader" id="Shader_bqxej"]
 code = "shader_type spatial;
@@ -28,7 +28,15 @@ shader = SubResource("Shader_bqxej")
 material = SubResource("ShaderMaterial_yh7d3")
 text = "BULLET"
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bqxej"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="BulletTest" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("TextMesh_bqxej")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_bqxej")
