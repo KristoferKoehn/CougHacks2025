@@ -24,6 +24,7 @@ func _ready():
 func _on_host_pressed():
 	print("host button pressed")
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 32)
+	multiplayer.peer_connected.connect(add_player)
 
 func _process(_delta):
 	Steam.run_callbacks()

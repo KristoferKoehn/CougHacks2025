@@ -29,3 +29,7 @@ transform = Transform3D(-0.176663, 0.543185, -0.820817, 0.0106195, 0.834937, 0.5
 
 [node name="Surface" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("1_6io7f")]
 collisionShape = NodePath("StaticBody3D/CollisionShape3D")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://dv22cwx5a2m43", "uid://d2bc1v1emtsdq")
+spawn_path = NodePath("..")
