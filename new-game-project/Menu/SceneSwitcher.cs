@@ -1,6 +1,5 @@
 using Godot;
 using System.Collections.Generic;
-using static System.Formats.Asn1.AsnWriter;
 
 public partial class SceneSwitcher : Node
 {
@@ -32,7 +31,7 @@ public partial class SceneSwitcher : Node
         Network.Set("scene_dictionary", NetworkSceneDict);
         Network.Set("object_dictionary", NetworkObjectDict);
         Network.Set("network_object_spawn", GetNode<Node3D>("MultiplayerSpawnNode"));
-
+        GD.Print($"ATTACHING SPAWNER NODE: {GetNode<Node3D>("MultiplayerSpawnNode")}");
         Callable c = new Callable(this, MethodName.NetworkSceneChange);
         Network.Connect("scene_change", c);
     }

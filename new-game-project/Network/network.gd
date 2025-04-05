@@ -25,7 +25,6 @@ func _on_host_pressed():
 	print("host button pressed")
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 32)
 	multiplayer.peer_connected.connect(add_player)
-	
 
 func _process(_delta):
 	Steam.run_callbacks()
@@ -129,5 +128,4 @@ func add_player(id: int):
 	var p = object_dictionary[0].instantiate()
 	p.name = "player" + str(id)
 	p.set_multiplayer_authority(id);
-	
 	network_object_spawn.add_child(p, true)
