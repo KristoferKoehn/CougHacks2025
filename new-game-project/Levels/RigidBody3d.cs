@@ -7,7 +7,7 @@ public partial class RigidBody3d : RigidBody3D
 
     public override void _EnterTree()
     {
-        //SetMultiplayerAuthority(multiplayerID);
+        SetMultiplayerAuthority(multiplayerID);
     }
 
     public override void _Ready()
