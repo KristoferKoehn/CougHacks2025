@@ -16,5 +16,6 @@ public partial class RigidBody3d : RigidBody3D
         //SurfaceManager.Instance().CollisionBuildSubscribers.Add(this);
         SurfaceManager.Instance().SubscribeCollisionObject(this);
         GD.Print("spawning test guy");
+
     }
 }

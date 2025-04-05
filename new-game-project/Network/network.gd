@@ -42,6 +42,7 @@ func _on_lobby_created(_connect, id):
 		var error = peer.create_host(0)
 		if error == OK:
 			multiplayer.set_multiplayer_peer(peer)
+			add_player(1)
 			multiplayer.peer_connected.connect(_on_connecting_client)
 			print(lobby_id)
 			switch_scene(1)

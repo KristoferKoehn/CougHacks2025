@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bwwfc1e7rq0f5"
-path="res://.godot/imported/rifle.glb-d753cbb121edb2e852c1869835d89dfb.scn"
+path="res://.godot/imported/rifle.glb-8654007510342688264154abea3b4622.scn"
 
 [deps]
 
-source_file="res://Assets1/weapons/rifle/rifle.glb"
-dest_files=["res://.godot/imported/rifle.glb-d753cbb121edb2e852c1869835d89dfb.scn"]
+source_file="res://Assets/weapons/rifle/rifle.glb"
+dest_files=["res://.godot/imported/rifle.glb-8654007510342688264154abea3b4622.scn"]
 
 [params]
 
