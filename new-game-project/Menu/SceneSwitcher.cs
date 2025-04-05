@@ -31,7 +31,6 @@ public partial class SceneSwitcher : Node
         SurfaceMeshManager.Instance();
         Network.Set("scene_dictionary", NetworkSceneDict);
         Network.Set("object_dictionary", NetworkObjectDict);
-
         Network.Set("network_object_spawn", GetNode<Node3D>("MultiplayerSpawnNode"));
 
         Callable c = new Callable(this, MethodName.NetworkSceneChange);

@@ -82,7 +82,7 @@ func _on_connecting_client(client_ID):
 	if client_ID != 1:
 		switch_scene.rpc_id(client_ID, 1) # 1 is main level
 		#spawn_network_object.rpc_id(client_ID, Vector3(0,20,0), Vector3(0,0,0), Basis.IDENTITY, 0, client_ID)
-		add_player(client_ID)
+		#add_player(client_ID)
 
 func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 	if error == 1:
