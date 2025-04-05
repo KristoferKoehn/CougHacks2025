@@ -20,11 +20,11 @@ func _init():
 func _ready():
 	Steam.lobby_created.connect(_on_lobby_created)
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
-	multiplayer.peer_connected.connect(add_player)
 
 func _on_host_pressed():
 	print("host button pressed")
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 32)
+	multiplayer.peer_connected.connect(add_player)
 	
 
 func _process(_delta):
