@@ -7,6 +7,7 @@ var network_object_spawn : Node3D
 var lobby_list_container : Control
 
 var scene_dictionary : Dictionary[int, PackedScene]
+var object_dictionary : Dictionary[int, PackedScene]
 
 signal scene_change(scene_id)
 signal peer_connected(peer_id)
@@ -36,26 +37,25 @@ func _on_lobby_created(_connect, id):
 		lobby_id = id
 		Steam.setLobbyJoinable(lobby_id, true)
 		Steam.setLobbyData(lobby_id,"name", str(Steam.getPersonaName() + " TEST LOBBY"))
-		Steam.setLobbyData(lobby_id,"test", "surface")
+		Steam.setLobbyData(lobby_id,"game", "surface")
 		
 		var error = peer.create_host(0)
 		if error == OK:
 			multiplayer.set_multiplayer_peer(peer)
 			multiplayer.peer_connected.connect(_on_connecting_client)
 			print(lobby_id)
-			switch_scene(0)
+			switch_scene(1)
 		else:
 			print("error creating lobby: %s " % error)
-	
+
 func join_lobby(id):
-	lobby_id = id
+	print("Attempting join on " + str(id) + " ")
 	Steam.lobby_joined.connect(_on_lobby_joined)
-	Steam.joinLobby(lobby_id)
-	print("Attempting join on " + str(lobby_id) + " ")
+	Steam.joinLobby(id)
 
 func _open_lobby_list():
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
-	#Steam.addRequestLobbyListStringFilter("test","surface", Steam.LOBBY_COMPARISON_EQUAL)
+	Steam.addRequestLobbyListStringFilter("game","surface", Steam.LOBBY_COMPARISON_EQUAL)
 	Steam.requestLobbyList()
 
 func _on_lobby_match_list(lobbies):
@@ -78,23 +78,30 @@ func _on_connecting_client(client_ID):
 	print("Client Connected: " + str(client_ID))
 	peer_connected.emit(client_ID) #notify the rest of the program
 	if client_ID != 1:
-		switch_scene.rpc_id(client_ID, 0) # zero is main level
+		switch_scene.rpc_id(client_ID, 1) # 1 is main level
+		#spawn_network_object.rpc_id(client_ID, Vector3(0,20,0), Vector3(0,0,0), Basis.IDENTITY, 0, client_ID)
+		add_player(client_ID)
 
 func _on_lobby_joined(lobby_ID, perms, invite_lock, error):
 	if error == 1:
-		if Steam.getLobbyOwner(lobby_id) != Steam.getSteamID():
-			lobby_id = lobby_ID
+		if Steam.getLobbyOwner(lobby_ID) != Steam.getSteamID():
 			print("We're in!!")
+			#spawn in player
 			peer = SteamMultiplayerPeer.new()
-			peer.create_client(Steam.getLobbyOwner(lobby_id), 0)
-			multiplayer.multiplayer_peer = peer
+			error = peer.create_client(Steam.getLobbyOwner(lobby_ID), 0)
+			if error == OK:
+				print("connecting to host... ")
+				multiplayer.set_multiplayer_peer(peer)
+				
+			else:
+				print("error creating client: %s " % str(error))
 	else:
 		print("error joining host: %s " % str(error))
 
 @rpc("any_peer", "call_local")
 func spawn_network_object(pos : Vector3, vel : Vector3, rot : Basis, scene_ID : int, network_id) -> void:
 	if multiplayer.get_unique_id() == 1:
-		var b = scene_dictionary[scene_ID].instantiate()
+		var b = object_dictionary[scene_ID].instantiate()
 		b.set_multiplayer_authority(network_id)
 		b.name = str(multiplayer.get_unique_id())
 		network_object_spawn.add_child(b, true)
@@ -113,3 +120,9 @@ func rpc_ping_handle(msg: String):
 @rpc("any_peer", "call_local")
 func rpc_ping(msg : String) -> void:
 	print(msg)
+
+func add_player(id: int):
+	print("Adding player %s " % str(id))
+	var p = object_dictionary[0].instantiate()
+	p.set_multiplayer_authority(id);
+	network_object_spawn.add_child(p, true)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://0o21lw2fqo1q"]
+[gd_scene load_steps=6 format=3 uid="uid://0o21lw2fqo1q"]
 
 [ext_resource type="PackedScene" uid="uid://jow1p38v05li" path="res://GameObjects/Surface/Surface.tscn" id="1_6io7f"]
-[ext_resource type="Script" uid="uid://c6m0hsy87u0p8" path="res://Levels/RigidBody3d.cs" id="2_ff0on"]
+[ext_resource type="Script" uid="uid://ctb1h2ijetopa" path="res://Levels/Level0.cs" id="1_ff0on"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_glv2v"]
 
@@ -14,11 +14,8 @@ sky = SubResource("Sky_uu6xs")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_6io7f"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_6io7f"]
-
 [node name="Main" type="Node3D"]
+script = ExtResource("1_ff0on")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r0du0")
@@ -33,12 +30,6 @@ transform = Transform3D(-0.176663, 0.543185, -0.820817, 0.0106195, 0.834937, 0.5
 [node name="Surface" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("1_6io7f")]
 collisionShape = NodePath("StaticBody3D/CollisionShape3D")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1262, 0)
-script = ExtResource("2_ff0on")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("SphereMesh_6io7f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_6io7f")
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://d2bc1v1emtsdq", "uid://dv22cwx5a2m43")
+spawn_path = NodePath("..")

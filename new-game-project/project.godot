@@ -22,3 +22,7 @@ Network="*res://Network/network.gd"
 [dotnet]
 
 project/assembly_name="New Game Project"
+
+[filesystem]
+
+import/blender/enabled=false

@@ -1,0 +1,36 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bkr61s05ku73n"]
+
+[ext_resource type="Shader" uid="uid://we4frlr3dft0" path="res://Assets/groundgenerator.gdshader" id="1_c4il8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i05xs"]
+noise_type = 3
+frequency = 0.0028
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l3p7p"]
+width = 2048
+height = 2048
+seamless = true
+noise = SubResource("FastNoiseLite_i05xs")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ptl0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1d2n6"]
+width = 2048
+height = 2048
+seamless = true
+noise = SubResource("FastNoiseLite_7ptl0")
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_c4il8")
+shader_parameter/noise_rocks = SubResource("NoiseTexture2D_l3p7p")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_1d2n6")
+shader_parameter/cut_factor = 0.125
+shader_parameter/border = 0.565
+shader_parameter/cut_factor_rock = 0.635
+shader_parameter/border_rock = 0.17
+shader_parameter/texture1scale = 16.0
+shader_parameter/texture2scale = 22.0
+shader_parameter/texturerocksscale = 19.945
+shader_parameter/texture2height = 0.36
