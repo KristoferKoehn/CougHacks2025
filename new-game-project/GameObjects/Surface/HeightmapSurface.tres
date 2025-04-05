@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://m5vw1guxpxar"]
 
-[ext_resource type="Shader" uid="uid://cij22fjgsrha3" path="res://Surface/HeightmapSurface.gdshader" id="1_7ff34"]
+[ext_resource type="Shader" uid="uid://cij22fjgsrha3" path="res://GameObjects/Surface/HeightmapSurface.gdshader" id="1_7ff34"]
 
 [resource]
-render_priority = 0
+render_priority = 4
 shader = ExtResource("1_7ff34")
 shader_parameter/PLANE_SIZE = 4000.0
 shader_parameter/_intensity = 1.5

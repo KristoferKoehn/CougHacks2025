@@ -1,6 +1,15 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bkr61s05ku73n"]
+[gd_resource type="ShaderMaterial" load_steps=15 format=3 uid="uid://bkr61s05ku73n"]
 
 [ext_resource type="Shader" uid="uid://we4frlr3dft0" path="res://Assets/groundgenerator.gdshader" id="1_c4il8"]
+[ext_resource type="Texture2D" uid="uid://dkxyh5036cpf4" path="res://Assets/groundtextures/dirt_baseColor.png" id="2_xed5x"]
+[ext_resource type="Texture2D" uid="uid://flimdn08ag2m" path="res://Assets/groundtextures/sand_baseColor.png" id="3_58aqt"]
+[ext_resource type="Texture2D" uid="uid://cfl6mlpv3aa0b" path="res://Assets/groundtextures/rocks_baseColor.png" id="4_rf1rx"]
+[ext_resource type="Texture2D" uid="uid://fhyqidkjkkmg" path="res://Assets/groundtextures/dirt_normal.png" id="5_ccbnt"]
+[ext_resource type="Texture2D" uid="uid://b38ktqrbxdkh0" path="res://Assets/groundtextures/sand_normal.png" id="6_68xw3"]
+[ext_resource type="Texture2D" uid="uid://b300dh1rusexg" path="res://Assets/groundtextures/rocks_normal.png" id="7_2keda"]
+[ext_resource type="Texture2D" uid="uid://clyvfvmhhbolj" path="res://Assets/groundtextures/dirt_occlusionRoughnessMetallic.png" id="8_wx13f"]
+[ext_resource type="Texture2D" uid="uid://biugudlmcn4fy" path="res://Assets/groundtextures/sand_occlusionRoughnessMetallic.png" id="9_hapil"]
+[ext_resource type="Texture2D" uid="uid://teftuullj2jf" path="res://Assets/groundtextures/rocks_occlusionRoughnessMetallic.png" id="10_spyag"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i05xs"]
 noise_type = 3
@@ -34,3 +43,12 @@ shader_parameter/texture1scale = 16.0
 shader_parameter/texture2scale = 22.0
 shader_parameter/texturerocksscale = 19.945
 shader_parameter/texture2height = 0.36
+shader_parameter/albedo1 = ExtResource("2_xed5x")
+shader_parameter/normal1 = ExtResource("5_ccbnt")
+shader_parameter/rough1 = ExtResource("8_wx13f")
+shader_parameter/albedo2 = ExtResource("3_58aqt")
+shader_parameter/normal2 = ExtResource("6_68xw3")
+shader_parameter/rough2 = ExtResource("9_hapil")
+shader_parameter/albedo3 = ExtResource("4_rf1rx")
+shader_parameter/normal3 = ExtResource("7_2keda")
+shader_parameter/rough3 = ExtResource("10_spyag")
