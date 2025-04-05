@@ -2,7 +2,7 @@ using Godot;
 
 public partial class RigidBody3d : RigidBody3D
 {
-
+    [Export]
     public int multiplayerID = 1;
 
     public override void _EnterTree()
