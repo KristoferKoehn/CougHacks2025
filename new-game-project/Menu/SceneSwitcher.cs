@@ -4,13 +4,14 @@ using System.Collections.Generic;
 public partial class SceneSwitcher : Node
 {
 
-    public Stack<Node> SceneStack = new Stack<Node>();
+    public Stack<Node3D> SceneStack = new Stack<Node3D>();
     public static Window root;
     private static SceneSwitcher instance = null;
+    public static Node3D CurrentLevel = null;
     public Node Network { get; private set; }
 
     public Godot.Collections.Dictionary<int, PackedScene> NetworkSceneDict = new() {
-        { 0, GD.Load<PackedScene>("res://Levels/Main.tscn")},
+        { 0, GD.Load<PackedScene>("res://Levels/Level0.tscn")},
     };
 
     public Godot.Collections.Dictionary<int, PackedScene> NetworkObjectDict = new() {
@@ -23,7 +24,7 @@ public partial class SceneSwitcher : Node
         instance = this;
         Network = GetTree().Root.GetNode<Node>("/root/Network");
         //PushScene("res://Main.tscn");
-        PushScene("res://Menu/ServerMenu.tscn");
+        PushScene(NetworkSceneDict[0]);
         SurfaceMeshManager.Instance();
         Network.Set("scene_dictionary", NetworkSceneDict);
         Callable c = new Callable(this, MethodName.NetworkSceneChange);
@@ -35,19 +36,6 @@ public partial class SceneSwitcher : Node
         return instance;
     }
 
-    public void PushScene(string ScenePath) // used to move to another scene
-    {
-        Node previousScene = null;
-        if (SceneStack.Count > 0)
-        {
-            previousScene = SceneStack.Peek();
-            RemoveChild(previousScene);
-        }
-        Node scene = GD.Load<PackedScene>(ScenePath).Instantiate<Node>();
-        SceneStack.Push(scene);
-        AddChild(scene);
-    }
-
     public void PushScene(PackedScene Scene) // used to move to another scene
     {
         Node previousScene = null;
@@ -56,14 +44,15 @@ public partial class SceneSwitcher : Node
             previousScene = SceneStack.Peek();
             RemoveChild(previousScene);
         }
-        Node scene = Scene.Instantiate<Node>();
+        Node3D scene = Scene.Instantiate<Node3D>();
+        CurrentLevel = scene;
         SceneStack.Push(scene);
         AddChild(scene);
     }
 
     public void NetworkSceneChange(int scene_id)
     {
-        GD.Print("scene change");
+        GD.Print("scene change: " + NetworkSceneDict[scene_id].ResourceName);
         PushScene(NetworkSceneDict[scene_id]);
     }
 
@@ -91,4 +80,6 @@ public partial class SceneSwitcher : Node
             }
         }
     }
+
+
 }

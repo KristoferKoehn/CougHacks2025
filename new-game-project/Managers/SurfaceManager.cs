@@ -14,6 +14,8 @@ public partial class SurfaceManager : Node
     [Export] public float Seed = 20f;
     [Export] public Vector2 SubdivisionSize = new Vector2(1024, 1024);
 
+    public PackedScene CollisionBlockScene = GD.Load<PackedScene>("res://GameObjects/CollisionBlock/CollisionBlock.tscn");
+
     public Array<Node3D> CollisionBuildSubscribers = new Array<Node3D>();
     Array<Vector3> vectors = new Array<Vector3>() 
     {
@@ -63,6 +65,14 @@ public partial class SurfaceManager : Node
         ccs.SetFaces(collisions);
     }
 
+    public void SubscribeCollisionObject(Node3D node)
+    {
+        CollisionBlock cb = CollisionBlockScene.Instantiate<CollisionBlock>();
+        GD.Print(SceneSwitcher.CurrentLevel);
+        SceneSwitcher.CurrentLevel.CallDeferred("add_child", cb);
+        cb.SubscribeObject(node);
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -79,4 +89,6 @@ public partial class SurfaceManager : Node
 
         return f * Noise_Scale;
     }
+
+
 }
